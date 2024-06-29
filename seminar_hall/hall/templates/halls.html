@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% block content %}
+<section class="accomodation_area section_gap" style="background-color:aliceblue">
+    <div class="container">
+        <div class="section_title text-center">
+            <h2 class="title_color">Our Hall's</h2>
+            <p>We all live in an age that belongs to the young at heart. Life that is becoming extremely fast</p>
+        </div>
+         {%for i in hall.all %}
+
+        <div class="row mb_30">
+            <div class="col-lg-12 col-sm-12">
+                <div class="accomodation_item text-center">
+                    <a><h4 class="sec_h4">{{i.hall_name}}</h4></a>
+                    <h5>{{i.hall_mem}}<small>/Members</small></h5>
+                    <div class="hotel_img">
+                        <img src="{{ i.hall_img.url }}" alt="">
+                        
+                    </div>
+                    <a href="{% url 'hall_book' id=i.hall_id %}" class=" theme_btn button_hover" style="text-decoration: navajowhite;">click here</a>
+                </div>
+            </div>   
+        </div> 
+         <hr>
+        {% endfor %} 
+
+    </div>
+</section>
+{% endblock %}

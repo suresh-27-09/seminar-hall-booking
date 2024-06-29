@@ -1,0 +1,79 @@
+{%extends 'index.html'%}
+{% block content %}
+<div class="section-top-border" style="margin-top:10%">
+<div class="container mb-5">
+    <div class="row">
+    <div class="col">
+    <h3 class="mb-30 title_color">SEMINAR HALL BOOKING</h3>
+    <form action="{% url 'hall_book' id=user.id %}" method="POST">
+        {% csrf_token %}
+       
+        <div class="form-group">
+            <label>Hall name:</label>
+            <input type="text" name="hallname1" placeholder = '{{ user.hall_name }}'required class="form-control" value="{{ user.hall_name }}" disabled>
+            <input type="hidden" name="hallname" placeholder = '{{ user.hall_name }}'required class="form-control" value="{{ user.hall_name }}">
+        </div>
+
+        <div class="form-group">
+            <label>No of Seats:</label>
+            <input type="text" name="noseats1" placeholder = '{{ user.hall_mem }}'required class="form-control" value="{{ user.hall_mem }}" disabled>
+            <input type="hidden" name="noseats" placeholder = '{{ user.hall_mem }}'required class="form-control" value="{{ user.hall_mem }}">
+        </div>
+        <div class="form-group">
+            <label>Dept:</label>
+            <input type="text" name="dept" placeholder = '{{ user.dept }}'required class="form-control"value="{{ user.dept }}">
+        </div>
+       
+        <div class="form-group">
+            <label>Event Name:</label>
+            <input type="text" name="eventname" placeholder = '{{ user.eventname}}'required class="form-control" value= '{{ user.eventname}}'>
+        </div>
+        <div class="form-group">
+            <label>Co-ordinate Name:</label>
+            <input type="text" name="coordinatename" placeholder = '{{ user.coordinatename }}'required class="form-control" value="{{ user.coordinatename }}">
+        </div>
+        <div class="form-group">
+            <label>Co-ordinate ID:</label>
+            <input type="text" name="coordinateid" placeholder = '{{ user.coordinateid }}'required class="form-control" value="{{ user.coordinateid }}">
+        </div>
+        <div class="form-group">
+            <label>No of Members</label>
+            <input type="text" name="totmembers" placeholder = '{{ user.totalmember }} 'required class="form-control"value="{{ user.totalmember }} ">
+        </div>
+        <div class="form-group">
+            <label>Email Id</label>
+            <input type="email" name="email" placeholder = 'Email ID 'required class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Date</label>
+            <input type="date" name="date" placeholder = '{{ user.date }}'required class="form-control">
+        </div>
+        
+        <label>Select time</label>
+        <div class="form-group">
+            
+            <select name="time" value="{{ user.time }}" required>
+                <option value="9.00 AM - 11.00 AM">9.00 AM - 11.00 AM</option>
+                <option value="11.00 AM - 1.00 PM">11.00 AM - 1.00 PM </option>
+                <option value="1.00 PM - 3.00 PM">1.00 PM - 3.00 PM</option>
+                <option value="3.00 PM - 5.00 pm">3.00 PM - 5.00 pm</option>
+            </select>
+        </div>
+        <br>
+        <br>
+       
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+       
+    </form>
+</div>
+<div class="col">
+    
+     
+</div>
+</div>
+</div>
+
+{% endblock %}
+{% load sweetify %}
+{% sweetify %}

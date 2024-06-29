@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="static/css/login.css ">
+</head>
+<body>
+    <div class="main">
+      <div class="container b-container" id="b-container">
+        <form class="form" id="b-form" method="POST" action="#">
+          
+          {% csrf_token %}
+          <label for="remember">
+            <p id="remember" style="font-size:large;color:black">{{ error }}</p>
+          </label>
+          <h2 class="form_title title">Login </h2>
+          <input class="form__input" type="text" placeholder="Username" name="username" required>
+          <input class="form__input" type="password" placeholder="Password" name="password" required>
+          <a class="form__link" href="{% url 'register' %}">New Register</a>
+          <button class="form__button button submit">log IN</button>
+          
+        </form>
+      
+      </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.5/sweetalert2.all.min.js"></script>
+</body>
+</html>
+
+{% load sweetify %}
+{% sweetify %}

@@ -1,0 +1,39 @@
+
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+</head>
+<body>
+    <div class="main">
+      <div class="container b-container" id="b-container">
+       
+        <form class="form" id="b-form" method="POST" action="#">
+          {% csrf_token %}
+          <h2 class="form_title title">REGISTER</h2>
+          <input class="form__input" type="text" placeholder="Username" name="username">
+          <input class="form__input" type="password" placeholder="Password" name="password">
+          <input class="form__input" type="password" placeholder="Re-Password" name="password1">
+          <button class="form__button button submit">REGISTER</button>
+          <a  href="{% url 'index' %}" class="form__button button submit" style="text-align:center;text-decoration:none;padding-top:3%;">Back</a>  
+        </form>
+       
+      </div>
+   
+    </div>
+    
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.5/sweetalert2.all.min.js"></script>
+</body>
+</html>
+{% load sweetify %}
+{% sweetify %}
+{% endblock %}

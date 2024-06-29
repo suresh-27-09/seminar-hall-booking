@@ -1,0 +1,47 @@
+{% extends 'index.html'%}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 class="container"> SEMINAR HALL BOOKING LIST'S</h1>
+<div class="container">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">S.no</th>
+            <th scope="col">Hall Name</th>
+            <th scope="col">hall Members capacity</th>
+            <th scope="col">Department</th>
+            <th scope="col">Event Name</th>
+            <th scope="col">Co-Ordinate Name</th>
+            <th scope="col">Co-Ordinate ID</th>
+            <th scope="col">Total Member</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Delete Booking</th>
+            <th scope="col">Edit Booking</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in booked %}
+          <tr>
+            <th scope="row">{{forloop.counter}} </th>
+            <td>{{i.hall_name}} </td>
+            <td>{{i.hall_mem}} </td>
+            <td>{{i.dept}} </td>
+            <td>{{i.eventname}} </td>
+            <td>{{i.coordinatename}} </td>
+            <td>{{i.coordinateid}} </td>
+            <td>{{i.totalmember}} </td>
+            <td>{{i.date}} </td>
+            <td>{{i.time}} </td>
+            <td><a href="{% url 'delete' id=i.id %}" class=" btn btn-info">Delete </a></td>
+            <td><a href="{% url 'edit' id=i.id %}" class=" btn btn-info">Edit </a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+{% endblock %}
